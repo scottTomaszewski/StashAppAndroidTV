@@ -78,11 +78,13 @@ class TrackActivityPlaybackListener(
 
     fun release() {
         timer.cancel()
+        timer.purge()
     }
 
     fun release(position: Long) {
         Log.v(TAG, "release: position=$position")
         timer.cancel()
+        timer.purge()
         if (position >= 0) {
             saveSceneActivity(position, currentDurationSeconds.getAndSet(0))
         }

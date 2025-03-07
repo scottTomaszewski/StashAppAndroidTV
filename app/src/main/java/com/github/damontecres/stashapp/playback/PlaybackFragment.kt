@@ -684,6 +684,18 @@ abstract class PlaybackFragment(
         super.onStop()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Ensure all references are cleaned up
+        if (::videoView.isInitialized) {
+            videoView.player = null
+            videoView.setControllerVisibilityListener(null)
+        }
+        controllerVisibilityListener.clearListeners()
+        backCallback?.remove()
+        backCallback = null
+    }
+
     fun showAndFocusSeekBar() {
         videoView.showController()
         previewTimeBar.showPreview()

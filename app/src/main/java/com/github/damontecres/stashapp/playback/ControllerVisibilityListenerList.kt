@@ -12,6 +12,14 @@ class ControllerVisibilityListenerList : PlayerView.ControllerVisibilityListener
         listeners.add(listener)
     }
 
+    fun removeListener(listener: PlayerView.ControllerVisibilityListener) {
+        listeners.remove(listener)
+    }
+
+    fun clearListeners() {
+        listeners.clear()
+    }
+
     override fun onVisibilityChanged(visibility: Int) {
         listeners.forEach { it.onVisibilityChanged(visibility) }
     }

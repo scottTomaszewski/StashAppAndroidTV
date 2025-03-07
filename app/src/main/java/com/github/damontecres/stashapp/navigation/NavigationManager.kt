@@ -203,6 +203,10 @@ class NavigationManager(
         listeners.add(listener)
     }
 
+    fun removeListener(listener: NavigationListener) {
+        listeners.remove(listener)
+    }
+
     private fun getCurrentFragment(): Fragment? = fragmentManager.findFragmentById(R.id.root_fragment)
 
     val showingFragment: Boolean

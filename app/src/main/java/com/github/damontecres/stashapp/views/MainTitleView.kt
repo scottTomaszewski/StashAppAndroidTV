@@ -64,6 +64,10 @@ class MainTitleView(
         fun addListener(listener: View.OnFocusChangeListener) {
             listeners.add(listener)
         }
+        
+        fun removeListener(listener: View.OnFocusChangeListener) {
+            listeners.remove(listener)
+        }
     }
 
     val focusListener = FocusListener()
